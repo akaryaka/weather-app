@@ -65,6 +65,7 @@
     background: -moz-linear-gradient(45deg, rgb(251, 251, 251) 22%, rgb(248, 213, 104) 100%);
     background: linear-gradient(45deg, rgb(251, 251, 251) 22%, rgb(248, 213, 104) 100%);
   }
+
   .app{
     padding: 50px;
     border-radius: 10px;
@@ -167,7 +168,6 @@
   }
 
   @media(max-width: 440px) {
-    
     .weather-min-temp, .weather-max-temp, .info {
       font-size: 18px;
     }
