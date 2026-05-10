@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
   import { getWeather } from '../composables/weatherApp';
   import { values } from '../constants';
 </script>
@@ -12,18 +12,22 @@
       <button class="btn" type="submit" @click="getWeather">Узнать</button>
     </form>
     <div class="error">{{ values.error }}</div>
-    <p class="weather-temp" v-if="values.info != null">
+    <p class="weather-temp"  v-if="values.info != null">
+      <p>{{ values.info.name }}</p>
       <span>  
-        {{ Math.round(values.info.main.temp) }}
+        {{ Math.round(values.info.main.temp) }}°C
       </span>
+      <p>{{ values.info.weather[0].description }}</p>
+      <p>Минимальная температура: {{ Math.round(values.info.main.temp_min) }}°C</p>
+      <p>Максимальная температура: {{ Math.round(values.info.main.temp_max) }}°C</p>
+      <p></p>
+      <p>{{ values.info }}</p>
     </p>
   </div>
 </template>
 
 <style scoped>
-   body {
-    background: linear-gradient(45deg, rgb(251, 251, 251) 22%, rgb(248, 213, 104) 100%);
-  }
+
 
   .app {
     padding: 50px;
@@ -83,6 +87,7 @@
     font-size: 40px;
     font-weight: 70;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
