@@ -1,35 +1,35 @@
 <script lang="ts" setup>
   import { getWeather } from '../composables/weatherApp';
-  import { values } from '../constants';
+  import { data } from '../constants';
 </script>
 
 <template>
-  <div class="app">
+  <div class="weaher-app">
     <h1 class="title">Погода</h1>
     <p class="info">Введите название города</p>
-    <form action="#" class="app-box">
-      <input class="input" v-model="values.city" type="text" placeholder="Город">
-      <button class="btn" type="submit" @click="getWeather">Узнать</button>
+    <form @submit.prevent="getWeather" action="#" class="app-box">
+      <input name="input" class="input" v-model="data.city" type="text" placeholder="Город">
+      <input class="btn" type="submit" @click="getWeather" value="Узнать">
     </form>
-    <div class="error">{{ values.error }}</div>
-    <p class="weather-temp"  v-if="values.info != null">
-      <p>{{ values.info.name }}</p>
+    <!-- <div class="error">{{ values.error }}</div> -->
+    <p class="weather-temp"  v-if="data.info != null">
+      <p>{{ data.info.name }}</p>
       <span>  
-        {{ Math.round(values.info.main.temp) }}°C
+        {{ Math.round(data.info.main.temp) }}°C
       </span>
-      <p>{{ values.info.weather[0].description }}</p>
-      <p>Минимальная температура: {{ Math.round(values.info.main.temp_min) }}°C</p>
-      <p>Максимальная температура: {{ Math.round(values.info.main.temp_max) }}°C</p>
+      <p>{{ data.info.weather[0].description }}</p>
+      <p>Минимальная температура: {{ Math.round(data.info.main.temp_min) }}°C</p>
+      <p>Максимальная температура: {{ Math.round(data.info.main.temp_max) }}°C</p>
       <p></p>
-      <p>{{ values.info }}</p>
+      <p>{{ data.info }}</p>
     </p>
   </div>
 </template>
 
 <style scoped>
-
-
-  .app {
+  .weather-app {
+    /* width: 100%; */
+    /* height: 100vh; */
     padding: 50px;
     border-radius: 10px;
     background-color: #F8D568;
