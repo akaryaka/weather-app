@@ -1,7 +1,6 @@
- import { ref } from "vue"
+ import { reactive } from "vue"
  
-export const values = ref({
+export const data = reactive({
   city: '',
-  error: '',
   info: null
 })
