@@ -1,6 +1,12 @@
- import { reactive } from "vue"
+import { reactive } from "vue"
  
-export const data = reactive({
-  city: '',
+// для билда, исправлю)
+interface GetData {
+  city: any,
+  info: any
+}
+
+export const data: GetData = reactive({
+  city: null,
   info: null
 })
